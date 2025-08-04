@@ -1,5 +1,5 @@
-from app.models.models import TipoInventario
-from app.database import SessionLocal
+from models.models import TipoInventario
+from database import SessionLocal
 from datetime import datetime
 
 def seed_tipo_inventario():

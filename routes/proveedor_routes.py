@@ -1,8 +1,8 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
-from app.database import get_db
-from app.schemas.proveedor_schema import ProveedorCreate, ProveedorUpdate, ProveedorOut
-from app.crud import proveedor_crud
+from database import get_db
+from schemas.proveedor_schema import ProveedorCreate, ProveedorUpdate, ProveedorOut
+from crud import proveedor_crud
 
 router = APIRouter(
     prefix="/proveedores",

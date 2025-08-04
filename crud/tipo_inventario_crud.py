@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
-from app.models.models import TipoInventario
-from app.schemas.tipo_inventario_schema import TipoInventarioCreate
+from models.models import TipoInventario
+from schemas.tipo_inventario_schema import TipoInventarioCreate
 
 def create_tipo_inventario(db: Session, tipo_data: TipoInventarioCreate):
     nuevo_tipo = TipoInventario(nombre=tipo_data.nombre)

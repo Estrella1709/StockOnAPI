@@ -1,8 +1,8 @@
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
-from app.database import get_db
-from app.schemas.tipo_inventario_schema import TipoInventarioCreate, TipoInventarioOut
-from app.crud import tipo_inventario_crud
+from database import get_db
+from schemas.tipo_inventario_schema import TipoInventarioCreate, TipoInventarioOut
+from crud import tipo_inventario_crud
 
 router = APIRouter(prefix="/tipo-inventario", tags=["Tipo Inventario"])
 

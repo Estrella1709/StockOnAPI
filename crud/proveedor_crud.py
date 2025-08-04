@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
-from app.models.models import Proveedor
-from app.schemas.proveedor_schema import ProveedorCreate, ProveedorUpdate
+from models.models import Proveedor
+from schemas.proveedor_schema import ProveedorCreate, ProveedorUpdate
 
 def crear_proveedor(db: Session, proveedor: ProveedorCreate):
     nuevo_proveedor = Proveedor(**proveedor.model_dump(by_alias=True))

@@ -1,14 +1,14 @@
 from fastapi import FastAPI
-from app.seed_tipo_inventario import seed_tipo_inventario
-from app.routes import empresa_routes
-from app.routes import inventario_routes
-from app.routes import producto_routes
-from app.routes import venta_routes
-from app.routes import puesto_routes
-from app.routes import empleado_routes
-from app.routes import proveedor_routes
-from app.models import models
-from app.database import engine
+from seed_tipo_inventario import seed_tipo_inventario
+from routes import empresa_routes
+from routes import inventario_routes
+from routes import producto_routes
+from routes import venta_routes
+from routes import puesto_routes
+from routes import empleado_routes
+from routes import proveedor_routes
+from models import models
+from database import engine
 
 models.Base.metadata.create_all(bind=engine)
 
