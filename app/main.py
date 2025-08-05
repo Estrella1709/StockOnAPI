@@ -1,4 +1,6 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware 
+
 from app.seed_tipo_inventario import seed_tipo_inventario
 from app.routes import empresa_routes
 from app.routes import inventario_routes
@@ -17,7 +19,17 @@ app = FastAPI(
     description="Stock On",
     version="1.0.0"
 )
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"], 
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 seed_tipo_inventario()
+
 app.include_router(empresa_routes.router, prefix="/empresa", tags=["Empresa"])
 app.include_router(inventario_routes.router, prefix="/inventarios", tags=["Inventarios"])
 app.include_router(producto_routes.router)
