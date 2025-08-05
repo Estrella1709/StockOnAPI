@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
-from app.models.models import Inventario
-from app.schemas.inventario_schema import InventarioCreate, InventarioUpdate
+from models.models import Inventario
+from schemas.inventario_schema import InventarioCreate, InventarioUpdate
 
 def crear_inventario(db: Session, inventario: InventarioCreate):
     nuevo = Inventario(**inventario.dict())

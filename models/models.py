@@ -47,14 +47,14 @@ class Inventario(Base):
 class TipoInventario(Base):
     __tablename__ = "tipo_inventarios"
     id = Column(Integer, primary_key=True, index=True, autoincrement=True)
-    nombre = Column(String, unique=True, nullable=False)
+    nombre = Column(String(255), unique=True, nullable=False)
     created_at = Column(DateTime, default=datetime.utcnow)
-    updated_at = Column(DateTime, default=datetime.utcnow)
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
 class Carrito(Base):
     __tablename__ = 'carritos'
     id = Column(Integer, primary_key=True, autoincrement=True)
-    producto_id = Column(BigInteger, ForeignKey('productos.id'))
+    id_producto = Column(BigInteger, ForeignKey('productos.id'))
     cantidad = Column(Integer)
     precio = Column(DECIMAL(10,2))
     precioTotal = Column(DECIMAL(10,2))
@@ -66,7 +66,7 @@ class Carrito(Base):
 class Venta(Base):
     __tablename__ = 'ventas'
     id = Column(Integer, primary_key=True, autoincrement=True)
-    producto_id = Column(BigInteger, ForeignKey('productos.id'))
+    id_producto = Column(BigInteger, ForeignKey('productos.id'))
     cantidad = Column(Integer)
     precio = Column(DECIMAL(10, 2))
     precioTotal = Column(DECIMAL(10, 2))
@@ -136,15 +136,15 @@ class Admin(Base):
 class Proveedor(Base):
     __tablename__ = 'proveedores'
     id = Column(Integer, primary_key=True, index=True)
-    nombre = Column(String, nullable=False)
-    correo = Column(String, nullable=False)
-    num_telefono = Column(String)
-    tipo_producto = Column(String)
-    condiciones_pago = Column(String)
-    frecuencia_suministro = Column(String)
-    horario_atencion = Column(String)
-    pais = Column(String)
-    ciudad = Column(String)
+    nombre = Column(String(100), nullable=False)
+    correo = Column(String(100), nullable=False)
+    numTelefono = Column(String(20))
+    tiposProducto = Column(String(255))
+    condicionesPago = Column(String(255))
+    frecuenciaSuministro = Column(String(255))
+    horarioAtencion = Column(String(255))
+    pais = Column(String(100))
+    ciudad = Column(String(100))
     id_empresa = Column(BigInteger, ForeignKey('empresa.id'))
     created_at = Column(DateTime, default=datetime.utcnow)
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)

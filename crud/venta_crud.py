@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
-from app.models.models import Venta, VentaProducto, Producto
-from app.schemas.venta_schema import VentaCreate
+from models.models import Venta, VentaProducto, Producto
+from schemas.venta_schema import VentaCreate
 from datetime import datetime
 from decimal import Decimal
 

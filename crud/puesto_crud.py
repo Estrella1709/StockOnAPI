@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
-from app.models.models import Puesto
-from app.schemas.puesto_schema import PuestoCreate, PuestoUpdate
+from models.models import Puesto
+from schemas.puesto_schema import PuestoCreate, PuestoUpdate
 
 def crear_puesto(db: Session, puesto: PuestoCreate):
     nuevo_puesto = Puesto(**puesto.dict())
