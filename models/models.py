@@ -27,7 +27,6 @@ class Producto(Base):
     precioUnitario = Column(DECIMAL(10, 2))
     dimensiones = Column(Text)
     peso = Column(DECIMAL(10, 2))
-    precauciones = Column(Text)
     cantidad = Column(Integer)
     caracteristicas = Column(Text)
     codigoBarras = Column(String(200))
@@ -50,12 +49,12 @@ class TipoInventario(Base):
     id = Column(Integer, primary_key=True, index=True, autoincrement=True)
     nombre = Column(String(255), unique=True, nullable=False)
     created_at = Column(DateTime, default=datetime.utcnow)
-    updated_at = Column(DateTime, default=datetime.utcnow)
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
 class Carrito(Base):
     __tablename__ = 'carritos'
     id = Column(Integer, primary_key=True, autoincrement=True)
-    producto_id = Column(BigInteger, ForeignKey('productos.id'))
+    id_producto = Column(BigInteger, ForeignKey('productos.id'))
     cantidad = Column(Integer)
     precio = Column(DECIMAL(10,2))
     precioTotal = Column(DECIMAL(10,2))
@@ -67,7 +66,7 @@ class Carrito(Base):
 class Venta(Base):
     __tablename__ = 'ventas'
     id = Column(Integer, primary_key=True, autoincrement=True)
-    producto_id = Column(BigInteger, ForeignKey('productos.id'))
+    id_producto = Column(BigInteger, ForeignKey('productos.id'))
     cantidad = Column(Integer)
     precio = Column(DECIMAL(10, 2))
     precioTotal = Column(DECIMAL(10, 2))

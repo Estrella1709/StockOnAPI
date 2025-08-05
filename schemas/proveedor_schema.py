@@ -4,11 +4,11 @@ from datetime import datetime
 class ProveedorBase(BaseModel):
     nombre: str
     correo: EmailStr
-    numTelefono: str = Field(..., alias="num_telefono")
-    tipoProducto: str = Field(..., alias="tipo_producto")
-    condicionesPago: str = Field(..., alias="condiciones_pago")
-    frecuenciaSuministro: str = Field(..., alias="frecuencia_suministro")
-    horarioAtencion: str = Field(..., alias="horario_atencion")
+    numTelefono: str = Field(...)
+    tiposProducto: str = Field(...)
+    condicionesPago: str = Field(...)
+    frecuenciaSuministro: str = Field(...)
+    horarioAtencion: str = Field(...)
     pais: str
     ciudad: str
     id_empresa: int

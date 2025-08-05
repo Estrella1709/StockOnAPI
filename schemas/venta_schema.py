@@ -5,7 +5,7 @@ from datetime import datetime
 class DetalleVenta(BaseModel):
     id_producto: int
     cantidad: int
-    precio_unitario: float
+    precio: float
 
 class VentaCreate(BaseModel):
     productos: List[DetalleVenta]
